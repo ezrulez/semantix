@@ -1,0 +1,30 @@
+q1
+
+Serve para o Spark computar a origem dos dados para que não tenha que fazê-lo a cada chamada.
+
+q2
+
+Os códigos em Spark são mais rápidos que os de MapReduce devido aos seguintes motivos:
+	- framework MapReduce persiste os dados no HDFS após cada execução de cada job
+	- é possivel usar o cache In Memory no Spark, recurso não existente no framework MapReduce
+	- o MapReduce inicia uma JVM a cada execução de cada tarefa, incluindo cada JAR, compilação e validação de XML necessário para execução da mesma. 
+	- No Spark, ele mantem uma JVM em cada nó do cluster, passando o job para execução via RPC para o pool de threads
+
+q3
+
+O a função do SparkContext é ser o "dono" do aplicativo Spark. Através dele é possível configurar serviços internos, conectar com o ambiente de execução,criar RDDs, acumuladores e variáveis de difusão, acessar serviços do Spark e executar jobs.
+
+q4
+
+RDD ou Resilient​ ​Distributed​ ​Datasets​ é a abstração de dados do Spark. 
+
+Q5
+
+O groupByKey pode causar lentidão nos discos e rede, uma vez que os dados transitam pela rede para os reduce workers. Já o reduceByKey os dados são combinados em cada partição, havendo apenas um output por chave em cada partição a ser enviada pela rede.
+
+
+Q6
+
+O codigo abre arquivos que estao no HADOOP e gera um arquivo com a contagem de quantas vezes cada palavra aparece.
+
+
